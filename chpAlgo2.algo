@@ -1,0 +1,59 @@
+//array methode
+ALGORITHM ArraySumDiffrentsElements
+VAR
+    tab1:ARRAY_OF INTEGER[5]; 
+    tab2:ARRAY_OF INTEGER[4]; 
+    Tab3:ARRAY_OF INTEGER[3]; 
+    i,j,k,TEST,sum:INTEGER;
+BEGIN
+    k:=0;
+    FOR i FROM 0 TO Tab1.length-1 STEP 1  DO
+    TEST:=0;
+        FOR j FROM 0 TO Tab2.length-1 STEP 1  DO
+        IF (tab1[i]<>tab2[j]) THEN
+            TEST:=TEST+1;
+            ELSE 
+            Tab3[k]:=Tab1[i]
+            k:=k+1
+        END_IF
+        END_FOR
+        IF (TEST=tab2.length-1) THEN
+            sum:=sum+tab1[i];
+        END_IF
+    END_FOR
+        
+        FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+        TEST:=0;
+        FOR j FROM 0 TO tab1.length-1 STEP 1  DO
+        IF (Tab2[i]<>Tab1[j]) THEN
+            TEST:=TEST+1;
+            
+        END_IF
+        END_FOR
+        IF (TEST=Tab1.length-1) THEN
+            sum:=sum+tab2[i];
+        END_IF
+    END_FOR  
+END
+// hash table methode
+ALGORITHM ArraySumDiffrentsElements
+VAR
+    hash: HASH_TABLE<INTEGER,INTEGER>
+    tab1:ARRAY_OF INTEGER[3]; 
+    tab2:ARRAY_OF INTEGER[3]; 
+    i:INTEGER.
+BEGIN
+    hash.insert(2,1)
+    hash.insert(3,1)
+    hash.insert(4,1)
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        IF (hash.lookup(tab1[i])=TRUE) THEN
+            hash.insert(tab1[i],2)
+            ELSE
+            hash.insert(tab1[i],1)
+        END_IF
+        hash.value
+        
+    
+    END_FOR
+END
